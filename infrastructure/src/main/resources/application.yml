@@ -1,0 +1,52 @@
+server:
+  port: 44407
+  error:
+    include-message: always
+  compression:
+    enabled: true
+    mime-types: text/html,text/xml,text/plain,text/css,text/javascript,application/javascript,application/json
+    min-response-size: 1024
+  undertow:
+    threads:
+      worker: 64
+      io: 4
+
+spring:
+  application:
+    name: PLANTVIEW-SENSOR
+  mvc:
+    format:
+      date: yyyy-MM-dd
+      time: HH:mm:ss
+  data:
+    mongodb:
+      authentication-database: admin
+      uri: mongodb://root:kpGEZEpkrBdESU2X@ec2-54-207-39-194.sa-east-1.compute.amazonaws.com:44400/plantview-sensor?authSource=admin
+      auto-index-creation: true
+
+eureka:
+  instance:
+    preferIpAddress: true
+    statusPageUrlPath: /sensor/actuator/info
+  client:
+    registerWithEureka: true
+    fetchRegistry: true
+    serviceUrl:
+      defaultZone: http://localhost:44401/eureka/
+management:
+  endpoints:
+    web:
+      base-path: /sensor/actuator
+springdoc:
+  api-docs:
+    path: /sensor/api-docs
+  swagger-ui:
+    path: /sensor/swagger-ui
+
+logging:
+  file:
+    name: ./logs/sensor.log
+    max-size: 10MB
+    max-history: 30
+  pattern:
+    rolling-file-name: ./logs/sensor-%d{yyyy-MM-dd}.%i.log

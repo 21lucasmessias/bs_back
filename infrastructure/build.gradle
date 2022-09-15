@@ -1,0 +1,40 @@
+plugins {
+    id 'java'
+    id 'application'
+    id 'org.springframework.boot' version '2.6.7'
+    id 'io.spring.dependency-management' version '1.0.11.RELEASE'
+}
+
+bootJar {
+    archiveName 'sanctuary-bs-api.jar'
+    destinationDirectory.set(file("${rootProject.buildDir}/libs"))
+}
+
+group 'com.sanctuary.bs.api.infrastructure'
+version '1.0-SNAPSHOT'
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    implementation(project(":domain"))
+    implementation(project(":application"))
+
+    implementation('org.springdoc:springdoc-openapi-ui:1.6.11')
+
+    implementation('org.springframework.cloud:spring-cloud-starter-netflix-eureka-client:3.1.3')
+    implementation('org.springframework.boot:spring-boot-starter-actuator')
+    implementation('org.springframework.boot:spring-boot-starter-data-mongodb:2.7.3')
+
+    implementation('org.springframework.boot:spring-boot-starter-web') {
+        exclude module: 'spring-boot-starter-tomcat'
+    }
+    implementation('org.springframework.boot:spring-boot-starter-undertow')
+
+    testImplementation('org.springframework.boot:spring-boot-starter-test')
+}
+
+test {
+    useJUnitPlatform()
+}
