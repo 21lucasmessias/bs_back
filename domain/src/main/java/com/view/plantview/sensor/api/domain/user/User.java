@@ -14,27 +14,27 @@ public class User extends AggregateRoot<UserId> implements Cloneable {
 
     private User(
             final UserId anId,
+            final String aUniqueIdentifier,
             final String aName,
             final String aPhoneNumber,
             final String aEmail,
-            final String aUniqueIdentifier,
             final Role aRole,
             final String aPassword
     ) {
         super(anId);
+        this.uniqueIdentifier = aUniqueIdentifier;
         this.name = aName;
         this.phoneNumber = aPhoneNumber;
         this.email = aEmail;
-        this.uniqueIdentifier = aUniqueIdentifier;
         this.role = aRole;
         this.password = aPassword;
     }
 
     public static User newUser(
+            final String aUniqueIdentifier,
             final String aName,
             final String aPhoneNumber,
             final String aEmail,
-            final String aUniqueIdentifier,
             final Role aRole,
             final String aPassword
     ) {
@@ -42,10 +42,10 @@ public class User extends AggregateRoot<UserId> implements Cloneable {
 
         return new User(
                 id,
+                aUniqueIdentifier,
                 aName,
                 aPhoneNumber,
                 aEmail,
-                aUniqueIdentifier,
                 aRole,
                 aPassword
         );
@@ -54,6 +54,10 @@ public class User extends AggregateRoot<UserId> implements Cloneable {
     @Override
     public void validate(ValidationHandler handler) {
         new UserValidator(this, handler).validate();
+    }
+
+    public String getUniqueIdentifier() {
+        return uniqueIdentifier;
     }
 
     public String getName() {
@@ -68,10 +72,6 @@ public class User extends AggregateRoot<UserId> implements Cloneable {
         return email;
     }
 
-    public String getUniqueIdentifier() {
-        return uniqueIdentifier;
-    }
-
     public Role getRole() {
         return role;
     }
@@ -84,13 +84,11 @@ public class User extends AggregateRoot<UserId> implements Cloneable {
             final String aName,
             final String aPhoneNumber,
             final String aEmail,
-            final Role aRole,
             final String aPassword
     ) {
         this.name = aName;
         this.phoneNumber = aPhoneNumber;
         this.email = aEmail;
-        this.role = aRole;
         this.password = aPassword;
 
         return this;

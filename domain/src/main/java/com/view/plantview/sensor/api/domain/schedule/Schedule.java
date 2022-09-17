@@ -9,7 +9,7 @@ import java.time.Instant;
 
 public class Schedule extends AggregateRoot<ScheduleId> implements Cloneable {
 
-    private User barber;
+    private final User barber;
     private User client;
     private Instant start;
     private Instant end;
