@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="io.sanctuary.bs.api.application.user.create.CreateUserUseCaseTest" tests="13" skipped="0" failures="0" errors="0" timestamp="2022-09-22T23:36:17" hostname="RASHID" time="0.395">
+  <properties/>
+  <testcase name="givenAnValidCommandWithNullName_whenCallsCreateUser_thenShouldReturnDomainException()" classname="io.sanctuary.bs.api.application.user.create.CreateUserUseCaseTest" time="0.368"/>
+  <testcase name="givenAnInvalidPassword_whenCallsCreateUser_thenShouldReturnDomainException()" classname="io.sanctuary.bs.api.application.user.create.CreateUserUseCaseTest" time="0.002"/>
+  <testcase name="givenAnInvalidName_whenCallsCreateUser_thenShouldReturnDomainException()" classname="io.sanctuary.bs.api.application.user.create.CreateUserUseCaseTest" time="0.002"/>
+  <testcase name="givenAnValidCommandWithNullRole_whenCallsCreateUser_thenShouldReturnDomainException()" classname="io.sanctuary.bs.api.application.user.create.CreateUserUseCaseTest" time="0.001"/>
+  <testcase name="givenAnValidCommandWithNullPassword_whenCallsCreateUser_thenShouldReturnDomainException()" classname="io.sanctuary.bs.api.application.user.create.CreateUserUseCaseTest" time="0.0"/>
+  <testcase name="givenAnInvalidEmail_whenCallsCreateUser_thenShouldReturnDomainException()" classname="io.sanctuary.bs.api.application.user.create.CreateUserUseCaseTest" time="0.001"/>
+  <testcase name="givenAValidCommand_whenCallsCreateUser_thenShouldReturnUserId()" classname="io.sanctuary.bs.api.application.user.create.CreateUserUseCaseTest" time="0.01"/>
+  <testcase name="givenAnInvalidPhoneNumber_whenCallsCreateUser_thenShouldReturnDomainException()" classname="io.sanctuary.bs.api.application.user.create.CreateUserUseCaseTest" time="0.001"/>
+  <testcase name="givenAnValidCommand_whenGatewayThrowsRandomException_thenShouldReturnException()" classname="io.sanctuary.bs.api.application.user.create.CreateUserUseCaseTest" time="0.004"/>
+  <testcase name="givenAnValidCommandWithNullPhoneNumber_whenCallsCreateUser_thenShouldReturnDomainException()" classname="io.sanctuary.bs.api.application.user.create.CreateUserUseCaseTest" time="0.001"/>
+  <testcase name="givenAnInvalidUniqueIdentifier_whenCallsCreateUser_thenShouldReturnDomainException()" classname="io.sanctuary.bs.api.application.user.create.CreateUserUseCaseTest" time="0.001"/>
+  <testcase name="givenAnValidCommandWithNullEmail_whenCallsCreateUser_thenShouldReturnDomainException()" classname="io.sanctuary.bs.api.application.user.create.CreateUserUseCaseTest" time="0.001"/>
+  <testcase name="givenAnValidCommandWithNullUniqueIdentifier_whenCallsCreateUser_thenShouldReturnDomainException()" classname="io.sanctuary.bs.api.application.user.create.CreateUserUseCaseTest" time="0.001"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>
