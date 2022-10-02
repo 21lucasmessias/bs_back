@@ -1,9 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="io.sanctuary.bs.api.application.user.delete.DeleteUserUseCaseTest" tests="3" skipped="0" failures="0" errors="0" timestamp="2022-09-23T00:26:26" hostname="RASHID" time="0.007">
-  <properties/>
-  <testcase name="givenAValidUserId_whenGatewayThrows_thenShouldReturnException()" classname="io.sanctuary.bs.api.application.user.delete.DeleteUserUseCaseTest" time="0.002"/>
-  <testcase name="givenAnInvalidUserId_whenCallsDeleteUser_thenShouldBeOk()" classname="io.sanctuary.bs.api.application.user.delete.DeleteUserUseCaseTest" time="0.002"/>
-  <testcase name="givenAValidUserId_whenCallsDeleteUser_thenShouldBeOk()" classname="io.sanctuary.bs.api.application.user.delete.DeleteUserUseCaseTest" time="0.001"/>
-  <system-out><![CDATA[]]></system-out>
-  <system-err><![CDATA[]]></system-err>
-</testsuite>
