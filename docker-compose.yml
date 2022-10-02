@@ -15,4 +15,4 @@ services:
       - bs_api_network
 
 networks:
-  adm_videos_network:
+  bs_api_network:

@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="io.sanctuary.bs.api.application.user.retrieve.list.ListUsersUseCaseTest" tests="3" skipped="0" failures="0" errors="0" timestamp="2022-09-22T23:36:17" hostname="RASHID" time="0.008">
+<testsuite name="io.sanctuary.bs.api.application.user.retrieve.list.ListUsersUseCaseTest" tests="3" skipped="0" failures="0" errors="0" timestamp="2022-09-23T00:26:26" hostname="RASHID" time="0.008">
   <properties/>
   <testcase name="givenAValidQuery_whenHasNoResults_thenShouldReturnEmptyUsers()" classname="io.sanctuary.bs.api.application.user.retrieve.list.ListUsersUseCaseTest" time="0.004"/>
   <testcase name="givenAValidQuery_whenCallsListUsers_thenShouldReturnUsers()" classname="io.sanctuary.bs.api.application.user.retrieve.list.ListUsersUseCaseTest" time="0.001"/>
-  <testcase name="givenAValidQuery_whenGatewayThrowsException_thenShouldReturnException()" classname="io.sanctuary.bs.api.application.user.retrieve.list.ListUsersUseCaseTest" time="0.001"/>
+  <testcase name="givenAValidQuery_whenGatewayThrowsException_thenShouldReturnException()" classname="io.sanctuary.bs.api.application.user.retrieve.list.ListUsersUseCaseTest" time="0.002"/>
   <system-out><![CDATA[]]></system-out>
   <system-err><![CDATA[]]></system-err>
 </testsuite>

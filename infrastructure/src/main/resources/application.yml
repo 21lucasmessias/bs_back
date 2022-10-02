@@ -1,52 +1,36 @@
 server:
-  port: 44407
-  error:
-    include-message: always
+  port: 8080
+  servlet:
+    context-path: /api
   compression:
-    enabled: true
-    mime-types: text/html,text/xml,text/plain,text/css,text/javascript,application/javascript,application/json
-    min-response-size: 1024
+    enabled: true # Whether response compression is enabled.
+    mime-types: text/html,text/xml,text/plain,text/css,text/javascript,application/javascript,application/json # Comma-separated list of MIME types that should be compressed.
+    min-response-size: 1024 # Minimum "Content-Length" value that is required for compression to be performed.
   undertow:
     threads:
-      worker: 64
-      io: 4
+      worker: 32 # Generally this should be reasonably high, at least 10 per CPU core: https://undertow.io/undertow-docs/undertow-docs-2.1.0/index.html#listeners-2
+      io: 2 # One IO thread per CPU core is a reasonable default: https://undertow.io/undertow-docs/undertow-docs-2.1.0/index.html#listeners-2
 
 spring:
-  application:
-    name: PLANTVIEW-SENSOR
-  mvc:
-    format:
-      date: yyyy-MM-dd
-      time: HH:mm:ss
-  data:
-    mongodb:
-      authentication-database: admin
-      uri: mongodb://root:kpGEZEpkrBdESU2X@ec2-54-207-39-194.sa-east-1.compute.amazonaws.com:44400/plantview-sensor?authSource=admin
-      auto-index-creation: true
-
-eureka:
-  instance:
-    preferIpAddress: true
-    statusPageUrlPath: /sensor/actuator/info
-  client:
-    registerWithEureka: true
-    fetchRegistry: true
-    serviceUrl:
-      defaultZone: http://localhost:44401/eureka/
-management:
-  endpoints:
-    web:
-      base-path: /sensor/actuator
-springdoc:
-  api-docs:
-    path: /sensor/api-docs
-  swagger-ui:
-    path: /sensor/swagger-ui
-
-logging:
-  file:
-    name: ./logs/sensor.log
-    max-size: 10MB
-    max-history: 30
-  pattern:
-    rolling-file-name: ./logs/sensor-%d{yyyy-MM-dd}.%i.log
+  datasource:
+    url: jdbc:mysql://${mysql.url}/${mysql.schema}?useSSL=true&serverTimezone=UTC&characterEncoding=UTF-8
+    username: ${mysql.username}
+    password: ${mysql.password}
+    hikari:
+      auto-commit: false
+      connection-timeout: 250 # É uma configuração em milliseconds. O ideal é manter baixo para que estoure timeout logo e não prenda as threads.
+      max-lifetime: 600000 # Tempo máximo que uma conexão pode ficar aberta (10 min) - security.
+      maximum-pool-size: 20 # Mantemos até no máx 20 conexões com o banco de dados. O ideal é manter baixo mesmo, pois é algo custoso para o banco gerenciar. https://github.com/brettwooldridge/HikariCP/wiki/About-Pool-Sizing
+      minimum-idle: 10
+      pool-name: master
+  jpa:
+    open-in-view: false
+    show-sql: true
+    hibernate:
+      ddl-auto: none
+    properties:
+      "[hibernate.dialect]": org.hibernate.dialect.MySQL5InnoDBDialect
+      "[hibernate.generate_statistics]": false
+      "[hibernate.connection.provider_disables_autocommit]": true
+      # Para aumentar a performance ao máximo, desabilitamos o auto-commit e o open-in-view.
+      # https://vladmihalcea.com/why-you-should-always-use-hibernate-connection-provider_disables_autocommit-for-resource-local-jpa-transactions/

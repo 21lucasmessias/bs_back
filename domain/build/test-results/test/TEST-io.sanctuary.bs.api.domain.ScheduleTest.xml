@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="io.sanctuary.bs.api.domain.ScheduleTest" tests="8" skipped="0" failures="0" errors="0" timestamp="2022-09-22T23:36:21" hostname="RASHID" time="0.025">
+<testsuite name="io.sanctuary.bs.api.domain.ScheduleTest" tests="8" skipped="0" failures="0" errors="0" timestamp="2022-09-23T00:26:30" hostname="RASHID" time="0.024">
   <properties/>
-  <testcase name="givenAnInvalidStart_whenCallNewSchedule_thenThrowException()" classname="io.sanctuary.bs.api.domain.ScheduleTest" time="0.017"/>
+  <testcase name="givenAnInvalidStart_whenCallNewSchedule_thenThrowException()" classname="io.sanctuary.bs.api.domain.ScheduleTest" time="0.016"/>
   <testcase name="givenAnInvalidBarber_whenCallNewSchedule_thenThrowException()" classname="io.sanctuary.bs.api.domain.ScheduleTest" time="0.001"/>
   <testcase name="givenAValidSchedule_whenCallUpdateSchedule_thenShouldReturnUpdatedSchedule()" classname="io.sanctuary.bs.api.domain.ScheduleTest" time="0.001"/>
   <testcase name="givenAnInvalidStatus_whenCallNewSchedule_thenThrowException()" classname="io.sanctuary.bs.api.domain.ScheduleTest" time="0.001"/>
